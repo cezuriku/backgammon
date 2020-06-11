@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(cmake_starter)
+project(backgammon)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(EXECUTABLE_NAME ${PROJECT_NAME})
-set(TEST_NAME "test_${EXECUTABLE_NAME}")
+set(TEST_NAME "${EXECUTABLE_NAME}Test")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -W -Wall -Wextra -g")
 
 # Configuration
