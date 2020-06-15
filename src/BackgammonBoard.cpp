@@ -1,5 +1,10 @@
 #include "BackgammonBoard.hpp"
 
+BackgammonBoard::BackgammonBoard()
+{
+  reset();
+}
+
 void BackgammonBoard::reset()
 {
   for (int i = 0; i < 24; i++)
@@ -14,4 +19,7 @@ void BackgammonBoard::reset()
   cells_[16] = BackgammonBoardCell(0, 3);
   cells_[18] = BackgammonBoardCell(0, 5);
   cells_[23] = BackgammonBoardCell(2, 0);
+
+  bar_ = BackgammonBoardCell();
+  off_ = BackgammonBoardCell();
 }

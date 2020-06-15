@@ -21,7 +21,8 @@ enable_testing()
 
 # Get all test files
 file(GLOB_RECURSE TEST_FILES "test/*.cpp")
-add_executable(${TEST_NAME} ${TEST_FILES})
+list(REMOVE_ITEM SOURCE_FILES "${PROJECT_SOURCE_DIR}/src/main.cpp")
+add_executable(${TEST_NAME} ${TEST_FILES} ${SOURCE_FILES})
 
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})

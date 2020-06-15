@@ -1,6 +1,6 @@
 #ifndef BACKGAMMONBOARD_HPP
 #define BACKGAMMONBOARD_HPP
-#include <iostream>
+#include <array>
 
 struct BackgammonBoardCell
 {
@@ -13,14 +13,18 @@ struct BackgammonBoardCell
 class BackgammonBoard
 {
 public:
-  BackgammonBoard() = default;
+  BackgammonBoard();
 
   void reset();
 
+  const std::array<BackgammonBoardCell, 24> &cells() { return cells_; };
+  const BackgammonBoardCell &bar() { return bar_; };
+  const BackgammonBoardCell &off() { return off_; };
+
 private:
-  BackgammonBoardCell cells_[24];
-  BackgammonBoardCell bar;
-  BackgammonBoardCell off;
+  std::array<BackgammonBoardCell, 24> cells_;
+  BackgammonBoardCell bar_;
+  BackgammonBoardCell off_;
 };
 
 #endif /* BACKGAMMONBOARD_HPP */
