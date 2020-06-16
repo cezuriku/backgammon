@@ -23,3 +23,38 @@ void BackgammonBoard::reset()
   bar_ = BackgammonBoardCell();
   off_ = BackgammonBoardCell();
 }
+
+void BackgammonBoard::applyMoves(BackgammonColor color,
+                                 std::vector<std::pair<int, int>> moves)
+{
+  for (auto &move : moves)
+    applyMove(color, move);
+};
+
+void BackgammonBoard::applyMove(BackgammonColor color, std::pair<int, int> move)
+{
+  if (move.first != -1)
+  {
+    cells_[move.first].remove(color);
+  }
+  else
+  {
+    bar_.remove(color);
+  }
+
+  if (move.second == -2)
+  {
+    // go off the board
+    off_.add(color);
+  }
+  else if (cells_[move.second].getOpposite(color) == 1)
+  {
+    // This is a hit
+    bar_.addOpposite(color);
+    cells_[move.second].set(color);
+  }
+  else
+  {
+    cells_[move.second].add(color);
+  }
+};

@@ -12,13 +12,13 @@ protected:
 TEST_F(BackgammonBoardCellTest, BackgammonBoardCellInitBlack)
 {
   BackgammonBoardCell cell(0, 2);
-  EXPECT_EQ(0, cell.white);
-  EXPECT_EQ(2, cell.black);
+  EXPECT_EQ(0, cell.get(BackgammonColor::White));
+  EXPECT_EQ(2, cell.get(BackgammonColor::Black));
 }
 
 TEST_F(BackgammonBoardCellTest, BackgammonBoardCellInitWhite)
 {
   BackgammonBoardCell cell(2, 0);
-  EXPECT_EQ(2, cell.white);
-  EXPECT_EQ(0, cell.black);
+  EXPECT_EQ(2, cell.get(BackgammonColor::White));
+  EXPECT_EQ(0, cell.get(BackgammonColor::Black));
 }
